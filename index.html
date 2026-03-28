@@ -94,7 +94,36 @@
     #contacto {
       scroll-margin-top: 5rem;
     }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
   </style>
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 
 <body class="bg-surface text-on-surface font-body selection:bg-secondary/20 pb-[env(safe-area-inset-bottom,0)]">
@@ -128,7 +157,7 @@
         fetchpriority="high" decoding="async" src="./assets/hero.png" />
       <div class="absolute inset-0 bg-gradient-to-t from-inverse-surface via-transparent to-transparent"></div>
     </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
       <div class="max-w-3xl">
         <div
           class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 mb-8">
@@ -151,7 +180,7 @@
     </div>
   </header>
   <!-- Section 1 (Light): Por qué Google Ads -->
-  <section class="py-16 md:py-24 bg-white" id="por-que">
+  <section class="py-16 md:py-24 bg-white reveal" id="por-que">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
@@ -205,7 +234,7 @@
     </div>
   </section>
   <!-- Section 2 (Dark): Soluciones de Precisión -->
-  <section class="py-16 md:py-24 bg-inverse-surface text-white" id="soluciones">
+  <section class="py-16 md:py-24 bg-inverse-surface text-white reveal" id="soluciones">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-4xl font-headline font-bold mb-4">Soluciones de Precisión</h2>
@@ -255,7 +284,7 @@
     </div>
   </section>
   <!-- Section 3 (Light): Nuestro Proceso -->
-  <section class="py-16 md:py-24 bg-surface-container-low" id="proceso">
+  <section class="py-16 md:py-24 bg-surface-container-low reveal" id="proceso">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
         <div class="max-w-xl">
@@ -264,23 +293,23 @@
         </div>
       </div>
       <div class="grid md:grid-cols-4 gap-4">
-        <div class="bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all">
-          <div class="text-4xl font-black text-slate-100 mb-4">01</div>
+        <div class="group bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all duration-300">
+          <div class="text-4xl font-black text-slate-100 mb-4 transition-colors duration-300 ease-out group-hover:text-secondary">01</div>
           <h4 class="font-bold mb-2">Auditoría</h4>
           <p class="text-xs text-on-surface-variant">Identificamos fugas de presupuesto y oportunidades inmediatas.</p>
         </div>
-        <div class="bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all">
-          <div class="text-4xl font-black text-slate-100 mb-4">02</div>
+        <div class="group bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all duration-300">
+          <div class="text-4xl font-black text-slate-100 mb-4 transition-colors duration-300 ease-out group-hover:text-secondary">02</div>
           <h4 class="font-bold mb-2">Estrategia</h4>
           <p class="text-xs text-on-surface-variant">Diseñamos el funnel de ventas adaptado a tus KPIs de negocio.</p>
         </div>
-        <div class="bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all">
-          <div class="text-4xl font-black text-slate-100 mb-4">03</div>
+        <div class="group bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all duration-300">
+          <div class="text-4xl font-black text-slate-100 mb-4 transition-colors duration-300 ease-out group-hover:text-secondary">03</div>
           <h4 class="font-bold mb-2">Lanzamiento</h4>
           <p class="text-xs text-on-surface-variant">Implementación técnica perfecta y seguimiento de conversiones.</p>
         </div>
-        <div class="bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all">
-          <div class="text-4xl font-black text-slate-100 mb-4">04</div>
+        <div class="group bg-white p-8 border-b-4 border-slate-200 hover:border-secondary transition-all duration-300">
+          <div class="text-4xl font-black text-slate-100 mb-4 transition-colors duration-300 ease-out group-hover:text-secondary">04</div>
           <h4 class="font-bold mb-2">Reportes</h4>
           <p class="text-xs text-on-surface-variant">Análisis continuo y escalamiento basado en resultados reales.</p>
         </div>
@@ -288,7 +317,7 @@
     </div>
   </section>
   <!-- Section 4 (Dark): Números -->
-  <section class="py-16 md:py-24 bg-slate-900 text-white border-y border-white/5">
+  <section class="py-16 md:py-24 bg-slate-900 text-white border-y border-white/5 reveal">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 class="text-4xl font-headline font-bold mb-6">Números que hablan por sí solos</h2>
@@ -325,7 +354,7 @@
     </div>
   </section>
   <!-- Section 5 (Light): Contacto -->
-  <section class="py-16 md:py-24 bg-white" id="contacto">
+  <section class="py-16 md:py-24 bg-white reveal" id="contacto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 md:gap-20">
       <div>
         <h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface leading-tight mb-8">
@@ -378,7 +407,7 @@
     </div>
   </section>
   <!-- Footer -->
-  <footer class="bg-white border-t border-slate-200" role="contentinfo">
+  <footer class="bg-white border-t border-slate-200 reveal" role="contentinfo">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
       <div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-10 md:gap-8">
         <div class="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
@@ -399,6 +428,31 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var nodes = document.querySelectorAll(".reveal");
+      if (reduced) {
+        nodes.forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          });
+        },
+        { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.12 }
+      );
+      nodes.forEach(function (el) {
+        io.observe(el);
+      });
+    })();
+  </script>
 </body>
 
 </html>
